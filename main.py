@@ -1,7 +1,7 @@
 import os
 import sys
 
-# Add the root directory to sys.path to ensure imports work correctly
+# Add the root directory to sys.path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from src.ingestion.pdf_loader import load_documents
@@ -47,6 +47,8 @@ def main():
     # 2. Create the Retriever
     # This tool will fetch the relevant text for us
     retriever = get_retriever()
+
+    chat_history = [] #Initialising history
     
     print("\n" + "="*50)
     print("AI Tutor for Class 10  is Ready!")
@@ -102,12 +104,18 @@ def main():
             if intent == "QUIZ":
                 response = generate_quiz(query, context_text)
             else:
-                response = generate_explanation(query, context_text)
+                response = generate_explanation(query, context_text, chat_history)
+
+            chat_history.append(("User", query))
+            chat_history.append(("AI", response))
             
             # Step D: Print Result
+            
             print("\n" + "-"*30)
-            print(f"AI Response ({intent}):\n")
-            print(response)
+            if len(chat_history) > 4:
+                chat_history = chat_history[-4:]
+
+            print(f"AI Response ({intent}):\n{response}")
             print("-"*30)
             
         except Exception as e:

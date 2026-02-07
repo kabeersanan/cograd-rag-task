@@ -40,4 +40,7 @@ Context:
 
 Question:
 {query}
+
+Chat History:
+{history}
 """
