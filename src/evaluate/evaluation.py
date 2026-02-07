@@ -13,7 +13,7 @@ def evaluate_retrieval(test_queries):
     """
     Runs a set of queries against the Vector Database and measures:
     1. Retrieval Speed (Latency)
-    2. Average Confidence Score (Relevance)
+    2. Average Confidence Score (Normalized for L2 Distance)
     """
     print("🧪 Starting Retrieval Evaluation System...\n")
     
@@ -33,16 +33,26 @@ def evaluate_retrieval(test_queries):
         start_time = time.time()
         
         # Get top 3 results with scores
+        # Note: ChromaDB returns L2 DISTANCE by default (Lower is Better)
         results = db.similarity_search_with_score(query, k=3)
         
         end_time = time.time()
         latency = end_time - start_time
         total_time += latency
 
-        # Calculate Confidence of the #1 best result
-        # Score is distance (lower is better), so we invert it for "Confidence"
+        if not results:
+            print(f"{query[:47]:<50} ... | 0.0%         | NO RESULTS")
+            continue
+
         best_doc, best_score = results[0]
-        confidence = round((1 - best_score) * 100, 2)
+        
+        # --- 🔧 THE FIX: L2 Normalization Logic ---
+        # Formula: Score = 1 / (1 + distance)
+        # Distance 0.0 -> 100%
+        # Distance 1.0 -> 50%
+        # Distance 1.5 -> 40%
+        # This prevents negative numbers.
+        confidence = round((1 / (1 + best_score)) * 100, 2)
         
         # Get metadata
         source = best_doc.metadata.get('source', 'Unknown').split('/')[-1]
@@ -64,16 +74,15 @@ def evaluate_retrieval(test_queries):
     print("=" * 30)
 
     # Interpretation
-    if avg_score > 75:
+    if avg_score > 50:
         print("🌟 RATING: EXCELLENT (High relevance)")
-    elif avg_score > 50:
+    elif avg_score > 30:
         print("👍 RATING: GOOD (Acceptable relevance)")
     else:
         print("⚠️ RATING: POOR (Check chunk size or embeddings)")
 
 if __name__ == "__main__":
-    # Test Queries (Mix of specific dates, concepts, and people)
-    # These are tailored to the History Chapter you uploaded
+    # Test Queries tailored to your specific content
     sample_queries = [
         "When was the Gandhi-Irwin Pact signed?",
         "What is the meaning of Satyagraha?",

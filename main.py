@@ -84,7 +84,7 @@ def main():
             print("\n--- 📄 Retrieved Sources ---")
             for doc, score in results:
                 # 1. Calculate Confidence (Score is distance, so 1 - score)
-                confidence = round((1 - score) * 100, 2)
+                confidence = round((1 / (1 + score)) * 100, 2)
                 
                 # 2. Extract Metadata
                 page_num = doc.metadata.get("page", "Unknown")
