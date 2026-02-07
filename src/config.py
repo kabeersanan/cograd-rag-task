@@ -20,7 +20,7 @@ CHUNK_OVERLAP = 200
 
 # --- AI MODELS ---
 # Using Google's efficient embedding model for vector search
-EMBEDDING_MODEL_NAME = "models/text-embedding-004"
+EMBEDDING_MODEL_NAME = "sentence-transformers/all-mpnet-base-v2"
 
 # Using Gemini Flash because it is fast, cheap, and has a large context window
-LLM_MODEL_NAME = "gemini-1.5-flash"
+LLM_MODEL_NAME = "gemini-2.5-flash-lite"

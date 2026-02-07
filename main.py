@@ -73,13 +73,23 @@ def main():
             
             # Step A: Retrieve Context (The 'R' in RAG)
             # We find the 3 most relevant paragraphs from the book
-            docs = retriever.invoke(query)
+            print("🔍 Searching textbooks...")
             
-            # Combine them into a single string of text
-            context_text = "\n\n".join([d.page_content for d in docs])
+            # Use similarity_search_with_score to get the score!
+            results = vector_store.similarity_search_with_score(query, k=3)
             
+            context_text = ""
+            print("\n--- 📄 Source Evidence ---")
+            for doc, score in results:
+                # Convert score to percentage (Lower score = Better match in Chroma)
+                similarity = round((1 - score) * 100, 2)
+                page_num = doc.metadata.get("page", "Unknown")
+                
+                print(f"   • Page {page_num} (Confidence: {similarity}%)")
+                context_text += f"{doc.page_content}\n"
+
             if not context_text:
-                print("I could not find any relevant information in the provided chapter.")
+                print("No relevant info found.")
                 continue
 
             # Step B: Route Intent (The 'Brain')
