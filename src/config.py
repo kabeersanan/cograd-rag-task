@@ -6,6 +6,7 @@ load_dotenv()
 
 # --- API KEYS ---
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
 # --- FILE PATHS ---
 # We use os.path.join to make sure it works on both Windows and Mac
@@ -19,8 +20,7 @@ CHUNK_SIZE = 1000
 CHUNK_OVERLAP = 200
 
 # --- AI MODELS ---
-# Using Google's efficient embedding model for vector search
 EMBEDDING_MODEL_NAME = "sentence-transformers/all-mpnet-base-v2"
 
 # Using Gemini Flash because it is fast, cheap, and has a large context window
-LLM_MODEL_NAME = "gemini-2.5-flash-lite"
+LLM_MODEL_NAME = "llama-3.3-70b-versatile"

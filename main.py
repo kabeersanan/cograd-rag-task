@@ -49,8 +49,8 @@ def main():
     retriever = get_retriever()
     
     print("\n" + "="*50)
-    print("AI Tutor for Class 10 Science is Ready!")
-    print("Try asking: 'Explain displacement reactions' or 'Give me a quiz on acids'")
+    print("AI Tutor for Class 10  is Ready!")
+    print("Try asking: 'Explain the main idea of this Chapter' or 'Give me a quiz on XYZ topic'")
     print("Type 'exit' to quit.")
     print("="*50 + "\n")
 
@@ -75,22 +75,23 @@ def main():
             # We find the 3 most relevant paragraphs from the book
             print("🔍 Searching textbooks...")
             
-            # Use similarity_search_with_score to get the score!
+            # Get docs AND scores (0.0 is perfect match, 1.0 is bad)
             results = vector_store.similarity_search_with_score(query, k=3)
             
             context_text = ""
-            print("\n--- 📄 Source Evidence ---")
+            print("\n--- 📄 Retrieved Sources ---")
             for doc, score in results:
-                # Convert score to percentage (Lower score = Better match in Chroma)
-                similarity = round((1 - score) * 100, 2)
-                page_num = doc.metadata.get("page", "Unknown")
+                # 1. Calculate Confidence (Score is distance, so 1 - score)
+                confidence = round((1 - score) * 100, 2)
                 
-                print(f"   • Page {page_num} (Confidence: {similarity}%)")
+                # 2. Extract Metadata
+                page_num = doc.metadata.get("page", "Unknown")
+                source_file = doc.metadata.get("source", "Unknown").split("/")[-1] # Clean filename
+                
+                # 3. Print for the User (This is the Source Attribution Bonus!)
+                print(f"   • {source_file} (Page {page_num}) - {confidence}% Relevant")
+                
                 context_text += f"{doc.page_content}\n"
-
-            if not context_text:
-                print("No relevant info found.")
-                continue
 
             # Step B: Route Intent (The 'Brain')
             # Decide if the user wants a Quiz or an Explanation

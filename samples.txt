@@ -1,0 +1,93 @@
+==================================================
+AI Tutor for Class 10 is Ready!
+Try asking: 'Explain the main idea of this chapter' or 'Give me a quiz on XYZ'
+Type 'exit' to quit.
+==================================================
+
+
+You: when was gandhi-irwin pact signed
+... Thinking ...
+🔍 Searching textbooks...
+
+--- 📄 Retrieved Sources ---
+   • data\raw\sst_chapter2_history.pdf (Page 11) - 23.74% Relevant
+   • data\raw\sst_chapter2_history.pdf (Page 10) - 2.24% Relevant
+   • data\raw\sst_chapter2_history.pdf (Page 10) - -1.49% Relevant
+[Detected Intent: EXPLAIN]
+
+------------------------------
+AI Response (EXPLAIN):
+
+The Gandhi-Irwin Pact was signed on 5 March 1931.
+------------------------------
+
+You: explain the main idea of this chapter
+... Thinking ...
+🔍 Searching textbooks...
+
+--- 📄 Retrieved Sources ---
+   • data\raw\sst_chapter2_history.pdf (Page 21) - -15.25% Relevant
+   • data\raw\sst_chapter2_history.pdf (Page 16) - -24.68% Relevant
+   • data\raw\sst_chapter2_history.pdf (Page 21) - -29.98% Relevant
+[Detected Intent: EXPLAIN]
+
+------------------------------
+AI Response (EXPLAIN):
+
+## Introduction to the Chapter
+The main idea of this chapter is to discuss the growth of the National Movement in India, specifically focusing on the factors that contributed to its development, such as the First World War and the Rowlatt Act.
+
+## Key Concepts
+* The chapter explores how the First World War helped in the growth of the National Movement in India.
+* It also delves into the reasons behind the outrage caused by the Rowlatt Act among Indians.
+* Additionally, the chapter touches on the ideas of satyagraha, the Non-Cooperation Movement, and the Civil Disobedience Movement.
+
+## Conclusion
+Overall, the chapter aims to provide an understanding of the key events, ideas, and movements that shaped the National Movement in India during the early 20th century.
+------------------------------
+
+You: quiz me on jallianwala bagh incident
+... Thinking ...
+🔍 Searching textbooks...
+
+--- 📄 Retrieved Sources ---
+   • data\raw\sst_chapter2_history.pdf (Page 3) - 37.15% Relevant
+   • data\raw\sst_chapter2_history.pdf (Page 12) - -6.06% Relevant
+   • data\raw\sst_chapter2_history.pdf (Page 21) - -8.58% Relevant
+[Detected Intent: QUIZ]
+
+------------------------------
+AI Response (QUIZ):
+
+Here are 3 multiple-choice questions based on the provided context:
+
+**Question 1**
+What was the main reason for General Dyer's action at Jallianwalla Bagh?
+A) To disperse the crowd peacefully
+B) To create a feeling of terror and awe among satyagrahis
+C) To protect the villagers from the crowd
+D) To impose martial law in the city
+
+**Correct Answer: B) To create a feeling of terror and awe among satyagrahis**
+Explanation: General Dyer's object was to 'produce a moral effect' and create a feeling of terror and awe among satyagrahis.
+
+**Question 2**
+Why did people gather at Jallianwalla Bagh on 13 April?
+A) Only to protest against the government's new repressive measures
+B) Only to attend the annual Baisakhi fair
+C) To protest against the government's new repressive measures and to attend the annual Baisakhi fair
+D) To meet General Dyer
+
+**Correct Answer: C) To protest against the government's new repressive measures and to attend the annual Baisakhi fair** 
+Explanation: Some people came to protest against the government's new repressive measures, while others came to attend the annual Baisakhi fair.
+
+**Question 3**
+What was Bhagat Singh's view on revolution, as stated during his trial?
+A) It was a means to glorify the cult of the bomb and pistol
+B) It was a way to seek personal freedom
+C) It was the inalienable right of mankind and a means to bring about social change
+D) It was a way to humiliate and terrorise people
+
+**Correct Answer: C) It was the inalienable right of mankind and a means to bring about social change**
+Explanation: Bhagat Singh stated that revolution is the inalienable right of mankind and a means to bring about social change, and that freedom is the imprescriptible birthright of all.
+------------------------------
