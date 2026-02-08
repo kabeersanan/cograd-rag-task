@@ -84,12 +84,12 @@ def evaluate_retrieval(test_queries):
 if __name__ == "__main__":
     # Test Queries tailored to your specific content
     sample_queries = [
-        "When was the Gandhi-Irwin Pact signed?",
-        "What is the meaning of Satyagraha?",
-        "Who was General Dyer?",
-        "Why was the Simon Commission boycotted?",
-        "Describe the Jallianwala Bagh incident.",
-        "What did the Inland Emigration Act of 1859 do?"
+        "When was the pH scale introduced?", 
+        "What is the meaning of water of crystallization?", 
+        "Who proposed the Arrhenius theory of acids and bases?", 
+        "Why does distilled water not conduct electricity?", 
+        "Describe the Chlor-alkali process.", 
+        "What did the reaction of metal carbonates with acids produce?"
     ]
     
     evaluate_retrieval(sample_queries)
