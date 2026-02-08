@@ -9,7 +9,7 @@
 ---
 
 ## A. Project Demo
-**[Link to 2-Minute Video Demo]**
+*[*\[Link to 2-Minute Video Demo\]**](https://www.loom.com/share/f217296184564cd1a9aef728230c4672)
 *(Click to watch the system handling complex queries, context retention, and quiz generation in real-time)*
 
 ---
