@@ -108,8 +108,7 @@ I created a custom script (`src/evaluation/evaluate.py`) to benchmark the system
 * A Groq API Key (Free at [console.groq.com](https://console.groq.com))
 
 ### 1. Clone the repository
-git clone <YOUR_GITHUB_REPO_URL>
-cd ai-study-companion
+git clone <https://github.com/kabeersanan/cograd-rag-task>
 
 ### 2. Create and activate a virtual environment (Recommended)
 python -m venv venv
