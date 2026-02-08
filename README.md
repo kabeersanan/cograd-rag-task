@@ -88,8 +88,48 @@ I chose a lightweight, open-source stack to ensure this runs fast on any local m
 | **Frontend** | **Streamlit** | Rapid prototyping with built-in support for data visualization. |
 
 ---
+## F. Engineering Challenges & Solutions
 
-## F. Evaluation & Metrics
+Building this project involved more than just connecting APIs. Below are the primary technical hurdles I encountered and the engineering strategies used to overcome them.
+
+---
+
+### 1. The "Negative Confidence" Trap
+**The Problem:** ChromaDB returns **L2 (Euclidean) Distance** by default, where `0.0` is a perfect match and `1.5+` is unrelated. My initial code treated these as raw similarity scores, leading to nonsensical outputs like `Confidence: -25%`.
+
+**The Solution:** I implemented a custom normalization formula in the retrieval pipeline to map unbounded distances to a strict $0$ to $1$ probability scale.
+
+$$\text{Confidence Score} = \frac{1}{1 + \text{Euclidean Distance}}$$
+
+This allowed for a reliable thresholding system (e.g., any score $<0.5$ triggers an "I don't know" response).
+
+---
+
+### 2. The "Yapping" AI (Hallucination vs. Verbosity)
+**The Problem:** When asked simple factual questions, the model often hallucinated extra context or provided overly long, three-paragraph essays for one-sentence answers.
+
+**The Solution:** I designed **Adaptive System Prompts** powered by a **Router Agent** that detects user intent before generating a response:
+* **Intent: `FACT`** → System constraint: *"Answer in 1 sentence only."*
+* **Intent: `CONCEPT`** → System constraint: *"Use bullet points and analogies."*
+
+---
+
+### 3. Context Amnesia
+**The Problem:** The model lacked "memory," preventing natural follow-up questions. For example:
+* **User:** "Who was Gandhi?" → **AI:** "A leader..."
+* **User:** "When was he born?" → **AI:** "Who is 'he'?"
+
+**The Solution:** I built a **Conversation Buffer** that maintains state by appending the last 4 turns of chat history to each new prompt. This enables the LLM to resolve pronouns (*"he"*, *"it"*, *"that event"*) by understanding the full context of the dialogue.
+
+---
+
+### 4. Reducing Latency (Gemini vs. Llama-3)
+**The Problem:** Initially using `Gemini-1.5-Flash` resulted in unpredictable API latency (frequently $>2s$) and restrictive rate limits during heavy testing phases.
+
+**The Solution:** I migrated the inference engine to **Groq (Llama-3-70b)**. This optimization reduced token generation time to **<0.4s**, providing a "real-time" feel essential for an educational tool.
+
+
+## G. Evaluation & Metrics
 I created a custom script (`src/evaluation/evaluate.py`) to benchmark the system against "Golden Queries" from the History chapter.
 
 **Performance Report:**
@@ -101,7 +141,7 @@ I created a custom script (`src/evaluation/evaluate.py`) to benchmark the system
 
 ---
 
-## G. Installation & Usage
+## H. Installation & Usage
 
 ### **Prerequisites**
 * Python 3.10+
@@ -132,7 +172,7 @@ streamlit run app.py
 python main.py
 
 
-## H. Future Roadmap
+## I. Future Roadmap
 If I had more time, I would implement:
 
 1.  **Multilingual Support (Hindi/Tamil)**
