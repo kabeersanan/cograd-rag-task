@@ -9,7 +9,7 @@
 ---
 
 ## A. Project Demo
-*[*\[Link to 2-Minute Video Demo\]**](https://www.loom.com/share/f217296184564cd1a9aef728230c4672)
+[*\[Link to 2-Minute Video Demo\]*](https://www.loom.com/share/f217296184564cd1a9aef728230c4672)
 *(Click to watch the system handling complex queries, context retention, and quiz generation in real-time)*
 
 ---
@@ -157,7 +157,7 @@ python -m venv venv
 #### Mac/Linux:
 source venv/bin/activate
 
-### 3. Install dependencies
+### 3. Install dependencies and place the pdf in data/raw
 pip install -r requirements.txt
 
 ### 4. Set up your API Key
@@ -191,8 +191,7 @@ If I had more time, I would implement:
     * **Why:** To help educators track student progress.
     * **How:** Visualize "Most Asked Questions" and "Confusing Topics" using Streamlit charts.
 
-
-**Built by Kabeer Sanan for Cograd AI Intern role**
+**Built by Kabeer Sanan for the Cograd AI Intern role**
 
 
 
