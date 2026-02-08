@@ -124,7 +124,7 @@ This allowed for a reliable thresholding system (e.g., any score $<0.5$ triggers
 ---
 
 ### 4. Reducing Latency (Gemini vs. Llama-3)
-**The Problem:** Initially using `Gemini-1.5-Flash` resulted in unpredictable API latency (frequently $>2s$) and restrictive rate limits during heavy testing phases.
+**The Problem:** Initially using `Gemini-2.5-Flash` resulted in unpredictable API latency (frequently $>2s$) and restrictive rate limits during heavy testing phases.
 
 **The Solution:** I migrated the inference engine to **Groq (Llama-3-70b)**. This optimization reduced token generation time to **<0.4s**, providing a "real-time" feel essential for an educational tool.
 
