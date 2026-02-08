@@ -11,7 +11,7 @@ def route_query(query):
         api_key=GROQ_API_KEY,
         temperature=0.0
     )
-
+    #acts as an orchestrator, helps redirect user's query to "EXPLAIN" or "QUIZ"
     prompt = ChatPromptTemplate.from_template(ROUTER_SYSTEM_PROMPT)
     chain = prompt | llm | StrOutputParser()
     

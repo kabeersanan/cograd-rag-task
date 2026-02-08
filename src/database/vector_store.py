@@ -1,7 +1,7 @@
 import os
 import shutil
 from langchain_chroma import Chroma
-# CHANGE: Use Local Embeddings
+# Using Local Embeddings
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from src.config import DB_DIR
 
