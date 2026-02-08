@@ -8,7 +8,7 @@ def generate_explanation(query, context, history):
     llm = ChatGroq(
         model=LLM_MODEL_NAME,
         api_key=GROQ_API_KEY,
-        temperature=0.5 # Slight creativity for explanations
+        temperature=0.3 # Slight creativity for explanations
     )
 
     prompt = ChatPromptTemplate.from_template(CONCEPT_SYSTEM_PROMPT)
