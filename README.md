@@ -30,7 +30,7 @@ Instead of a simple question-answer bot, I built a **Multi-Agent System** that a
 I designed a modular pipeline to ensure scalability and ease of debugging.
 
 ### **1. High-Level Data Flow**
-![RAG Architecture Diagram](assets/architecture_flow.png)
+![RAG Architecture Diagram](assets/architecture.png)
 *The flow from PDF ingestion to the final student answer.*
 
 ### **2. The Multi-Agent Decision Tree**
@@ -75,7 +75,7 @@ I moved beyond the command line to build a fully responsive web app.
 
 ---
 
-## 🛠️ Tech Stack & Decisions
+##  Tech Stack & Decisions
 
 I chose a lightweight, open-source stack to ensure this runs fast on any local machine while remaining cost-effective.
 
@@ -89,7 +89,7 @@ I chose a lightweight, open-source stack to ensure this runs fast on any local m
 
 ---
 
-## 📊 Evaluation & Metrics
+##  Evaluation & Metrics
 I created a custom script (`src/evaluation/evaluate.py`) to benchmark the system against "Golden Queries" from the History chapter.
 
 **Performance Report:**
@@ -101,35 +101,35 @@ I created a custom script (`src/evaluation/evaluate.py`) to benchmark the system
 
 ---
 
-## 🏃‍♂️ Installation & Usage
+## Installation & Usage
 
 ### **Prerequisites**
 * Python 3.10+
 * A Groq API Key (Free at [console.groq.com](https://console.groq.com))
 
-# 1. Clone the repository
+### 1. Clone the repository
 git clone <YOUR_GITHUB_REPO_URL>
 cd ai-study-companion
 
-# 2. Create and activate a virtual environment (Recommended)
+### 2. Create and activate a virtual environment (Recommended)
 python -m venv venv
-# Windows:
+#### Windows:
 .\venv\Scripts\activate
-# Mac/Linux:
+#### Mac/Linux:
 source venv/bin/activate
 
-# 3. Install dependencies
+### 3. Install dependencies
 pip install -r requirements.txt
 
-# 4. Set up your API Key
-# Create a .env file and add your key: GROQ_API_KEY=your_key_here
+### 4. Set up your API Key
+#### Create a .env file and add your key: GROQ_API_KEY=your_key_here
 echo "GROQ_API_KEY=your_actual_key_here" > .env
 
-# 5. Run the Application
-# Web Interface (Recommended):
+### 5. Run the Application
+#### Web Interface (Recommended):
 streamlit run app.py
 
-# Command Line Interface:
+#### Command Line Interface:
 python main.py
 
 
