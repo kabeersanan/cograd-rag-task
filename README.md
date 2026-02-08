@@ -133,8 +133,8 @@ This allowed for a reliable thresholding system (e.g., any score $<0.5$ triggers
 I created a custom script (`src/evaluation/evaluate.py`) to benchmark the system against "Golden Queries" from the History chapter.
 
 **Performance Report:**
-* **Average Confidence Score:** `~78%` (Excellent Relevance)
-* **Average Retrieval Latency:** `0.04s` (Real-time)
+* **Average Confidence Score:** `~53%` (Excellent Relevance)
+* **Average Retrieval Latency:** `0.7s` (Real-time)
 * **Hallucination Rate:** Near Zero (Due to strict "I don't know" prompt constraints).
 
 ![Evaluation Metrics Screenshot](assets/evaluation_screenshot.png)
