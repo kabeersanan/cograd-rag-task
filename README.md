@@ -8,13 +8,13 @@
 
 ---
 
-## 🎥 Project Demo
+## A. Project Demo
 **[Link to 2-Minute Video Demo]**
 *(Click to watch the system handling complex queries, context retention, and quiz generation in real-time)*
 
 ---
 
-## 🎯 The Goal
+## B. The Goal
 Build a system that transforms any **NCERT PDF** into an interactive, 24/7 AI Tutor that doesn't just "search" but "teaches."
 
 ### **My Solution: The Agentic RAG**
@@ -26,7 +26,7 @@ Instead of a simple question-answer bot, I built a **Multi-Agent System** that a
 
 ---
 
-## 🏗️ System Architecture
+## C.  System Architecture
 I designed a modular pipeline to ensure scalability and ease of debugging.
 
 ### **1. High-Level Data Flow**
@@ -39,7 +39,7 @@ I designed a modular pipeline to ensure scalability and ease of debugging.
 
 ---
 
-## ✨ Key Features
+## D. Key Features
 
 ### 1. Intelligent "Hierarchical" Chunking
 Standard chunkers blindly cut text at 1000 characters, often breaking sentences in half.
@@ -75,7 +75,7 @@ I moved beyond the command line to build a fully responsive web app.
 
 ---
 
-##  Tech Stack & Decisions
+## E. Tech Stack & Decisions
 
 I chose a lightweight, open-source stack to ensure this runs fast on any local machine while remaining cost-effective.
 
@@ -89,7 +89,7 @@ I chose a lightweight, open-source stack to ensure this runs fast on any local m
 
 ---
 
-##  Evaluation & Metrics
+## F. Evaluation & Metrics
 I created a custom script (`src/evaluation/evaluate.py`) to benchmark the system against "Golden Queries" from the History chapter.
 
 **Performance Report:**
@@ -101,7 +101,7 @@ I created a custom script (`src/evaluation/evaluate.py`) to benchmark the system
 
 ---
 
-## Installation & Usage
+## G. Installation & Usage
 
 ### **Prerequisites**
 * Python 3.10+
@@ -133,7 +133,7 @@ streamlit run app.py
 python main.py
 
 
-## 🔮 Future Roadmap
+## H. Future Roadmap
 If I had more time, I would implement:
 
 1.  **Multilingual Support (Hindi/Tamil)**
